@@ -95,7 +95,7 @@ class Domain(ModelBase):
 
     id = Column(Integer, primary_key=True)
     domain = Column(String(128), nullable=False)
-    is_top_domain = Column(CoerceToBool(name='top_domain_check'), default=False)
+    is_top_domain = Column(Boolean(name='top_domain_check'), default=False)
     organization_id = Column(Integer,
                              ForeignKey('organizations.id', ondelete='CASCADE',
                                         onupdate='CASCADE'),
@@ -219,7 +219,7 @@ class Profile(ModelBase):
     email = Column(String(128))
     gender = Column(String(32))
     gender_acc = Column(Integer())
-    is_bot = Column(CoerceToBool(name='is_bot_check'), default=False)
+    is_bot = Column(Boolean(name='is_bot_check'), default=False)
     country_code = Column(String(2),
                           ForeignKey('countries.code', ondelete='CASCADE'))
 
